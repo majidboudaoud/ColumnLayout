@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C58084422845C5B00BFDAB5 /* CLLayoutDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58084322845C5B00BFDAB5 /* CLLayoutDescriptor.swift */; };
+		3C58084722845C9400BFDAB5 /* CLLayoutEffectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58084622845C9400BFDAB5 /* CLLayoutEffectDelegate.swift */; };
+		3C58084A22845CC000BFDAB5 /* CLStretchyEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58084922845CC000BFDAB5 /* CLStretchyEffect.swift */; };
+		3C58084C22845CD700BFDAB5 /* CLStickyHeaderEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58084B22845CD700BFDAB5 /* CLStickyHeaderEffect.swift */; };
 		3CEB7B82225012D300455305 /* ColumnLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB7B78225012D300455305 /* ColumnLayout.framework */; };
 		3CEB7B87225012D300455305 /* ColumnLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B86225012D300455305 /* ColumnLayoutTests.swift */; };
 		3CEB7B89225012D300455305 /* ColumnLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CEB7B7B225012D300455305 /* ColumnLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C58084322845C5B00BFDAB5 /* CLLayoutDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLayoutDescriptor.swift; sourceTree = "<group>"; };
+		3C58084622845C9400BFDAB5 /* CLLayoutEffectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLayoutEffectDelegate.swift; sourceTree = "<group>"; };
+		3C58084922845CC000BFDAB5 /* CLStretchyEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLStretchyEffect.swift; sourceTree = "<group>"; };
+		3C58084B22845CD700BFDAB5 /* CLStickyHeaderEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLStickyHeaderEffect.swift; sourceTree = "<group>"; };
 		3CEB7B78225012D300455305 /* ColumnLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColumnLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEB7B7B225012D300455305 /* ColumnLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColumnLayout.h; sourceTree = "<group>"; };
 		3CEB7B7C225012D300455305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +64,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C58084222845C4600BFDAB5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3C58084322845C5B00BFDAB5 /* CLLayoutDescriptor.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3C58084522845C8800BFDAB5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3CEB7B952250131500455305 /* ColumnLayoutDelegate.swift */,
+				3C58084622845C9400BFDAB5 /* CLLayoutEffectDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3C58084822845CB100BFDAB5 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				3C58084922845CC000BFDAB5 /* CLStretchyEffect.swift */,
+				3C58084B22845CD700BFDAB5 /* CLStickyHeaderEffect.swift */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
 		3CEB7B6E225012D300455305 = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +111,9 @@
 		3CEB7B7A225012D300455305 /* ColumnLayout */ = {
 			isa = PBXGroup;
 			children = (
-				3CEB7B952250131500455305 /* ColumnLayoutDelegate.swift */,
+				3C58084822845CB100BFDAB5 /* Effects */,
+				3C58084522845C8800BFDAB5 /* Protocols */,
+				3C58084222845C4600BFDAB5 /* Models */,
 				3CEB7B942250131500455305 /* CoreColumnLayout.swift */,
 				3CEB7B922250130700455305 /* ColumnLayout.swift */,
 				3CEB7B7B225012D300455305 /* ColumnLayout.h */,
@@ -170,6 +206,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 3CEB7B6E225012D300455305;
 			productRefGroup = 3CEB7B79225012D300455305 /* Products */;
@@ -206,7 +243,11 @@
 			files = (
 				3CEB7B972250131500455305 /* ColumnLayoutDelegate.swift in Sources */,
 				3CEB7B962250131500455305 /* CoreColumnLayout.swift in Sources */,
+				3C58084C22845CD700BFDAB5 /* CLStickyHeaderEffect.swift in Sources */,
+				3C58084722845C9400BFDAB5 /* CLLayoutEffectDelegate.swift in Sources */,
 				3CEB7B932250130700455305 /* ColumnLayout.swift in Sources */,
+				3C58084422845C5B00BFDAB5 /* CLLayoutDescriptor.swift in Sources */,
+				3C58084A22845CC000BFDAB5 /* CLStretchyEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

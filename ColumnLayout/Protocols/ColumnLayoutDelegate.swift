@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ColumnLayoutDelegate {
+public protocol ColumnLayoutDelegate: class {
     func numberOfColumnsFor(section: Int) -> Int
     func heightForCellAt(indexPath: IndexPath) -> CGFloat
     func referenceHeightForHeaderInSection(section: Int) -> CGFloat
@@ -36,7 +36,7 @@ public extension ColumnLayoutDelegate {
     }
     
     func minimumLineSpacingForSection(section: Int) -> CGFloat {
-        return 8.0
+        return 10.0
     }
     
     func referenceHeightForHeaderInSection(section: Int) -> CGFloat {

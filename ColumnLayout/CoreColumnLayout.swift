@@ -10,6 +10,12 @@ import UIKit
 
 struct CoreColumnLayout {
     
+    ///   Calculates a section cell width from the number of columns and available width.
+    ///
+    ///   - Parameters:
+    ///      - descriptor: The descriptor object describing the current section layout behavior.
+    ///
+    ///   - Returns: An array of section cells height.
     static func calculateHeaderAttributes(availableWidth: CGFloat,
                                           height: CGFloat,
                                           currentOffset: CGFloat,
@@ -23,17 +29,33 @@ struct CoreColumnLayout {
     ///   Calculates a section cell width from the number of columns and available width.
     ///
     ///   - Parameters:
+    ///      - descriptor: The descriptor object describing the current section layout behavior.
+    ///
+    ///   - Returns: An array of section cells height.
+    static func calculateHeightValues(descriptor: CLLayoutDescriptor) -> [CGFloat] {
+        var heightValues: [CGFloat] = []
+        for index in 0..<descriptor.numberOfItems {
+            let indexPath = IndexPath(item: index, section: descriptor.section)
+            if let height = descriptor.delegate?.heightForCellAt(indexPath: indexPath) {
+                heightValues.append(height)
+            }
+        }
+        return heightValues
+    }
+    
+    ///   Calculates a section cell width from the number of columns and available width.
+    ///
+    ///   - Parameters:
     ///      - availableWidth: The available width, should be the width of the collection view.
     ///      - numberOfColumns: The number of columns for a section.
     ///      - inset: The horizontal inset.
     ///
     ///   - Returns: The width of the specified item.
-    static func calculateCellWidth(availableWidth: CGFloat,
-                                   numberOfColumns: Int,
-                                   interItemSpacing: CGFloat,
-                                   insets: UIEdgeInsets) -> CGFloat {
-        let numberOfColumns = CGFloat(numberOfColumns)
-        let columnWidth = availableWidth - insets.left - insets.right - ((numberOfColumns - 1) * interItemSpacing)
+    static func calculateCellWidth(descriptor: CLLayoutDescriptor) -> CGFloat {
+        let insets = descriptor.insets
+        let interItemSpacing = descriptor.interItemSpacing
+        let numberOfColumns = CGFloat(descriptor.numberOfColumns)
+        let columnWidth = descriptor.availableWidth - insets.left - insets.right - ((numberOfColumns - 1) * interItemSpacing)
         let cellWidth = columnWidth / numberOfColumns
         return cellWidth
     }
@@ -46,14 +68,11 @@ struct CoreColumnLayout {
     ///      - numberOfColumns: The number of columns for a given section.
     ///
     ///   - Returns: The width of the specified item.
-    static func calculateHorizontalValues(cellWidth: CGFloat,
-                                          numberOfColumns: Int,
-                                          interItemSpacing: CGFloat,
-                                          insets: UIEdgeInsets) -> [CGFloat] {
+    static func calculateHorizontalValues(descriptor: CLLayoutDescriptor, cellWidth: CGFloat) -> [CGFloat] {
         var xPositions: [CGFloat] = []
-        for i in 0..<numberOfColumns {
+        for i in 0..<descriptor.numberOfColumns {
             let index = CGFloat(i)
-            let horizontalInsets: CGFloat = insets.left + (index * interItemSpacing)
+            let horizontalInsets: CGFloat = descriptor.insets.left + (index * descriptor.interItemSpacing)
             let cellWidth: CGFloat = index * cellWidth
             let x = horizontalInsets + cellWidth
             xPositions.append(x)
@@ -68,17 +87,16 @@ struct CoreColumnLayout {
     ///      - numberOfColumns: The number of columns for a given section.
     ///
     ///   - Returns: The width of the specified item.
-    static func calculateVerticalValues(currentOffset: CGFloat,
-                                        numberOfColumns: Int,
-                                        lineSpacing: CGFloat,
+    static func calculateVerticalValues(descriptor: CLLayoutDescriptor,
+                                        currentOffset: CGFloat,
                                         heightValues: [CGFloat]) -> [CGFloat] {
-        let currentOffset = currentOffset + lineSpacing
+        let currentOffset = currentOffset + descriptor.lineSpacing
         let yPositions = heightValues.enumerated().map { (offset, height) -> CGFloat in
             return computeValues(fromValue: currentOffset,
-                                 lineSpacing: lineSpacing,
+                                 lineSpacing: descriptor.lineSpacing,
                                  index: offset,
                                  array: heightValues,
-                                 numberOfColumns: numberOfColumns)
+                                 numberOfColumns: descriptor.numberOfColumns)
         }
         return yPositions
     }
