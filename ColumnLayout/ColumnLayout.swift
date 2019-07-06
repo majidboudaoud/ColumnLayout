@@ -13,7 +13,7 @@ public class ColumnLayout: UICollectionViewLayout {
     // MARK: public properties
 
     public weak var delegate: ColumnLayoutDelegate?
-    public var effects: [CLStretchyEffect.Type] = [CLStretchyEffect.self]
+    public var effects: [CLStretchyEffect.Type] = []
     
     // MARK: private properties
     
@@ -110,17 +110,6 @@ public class ColumnLayout: UICollectionViewLayout {
         let visibleHeaderAttributes = headerAttributes.filter{ $0.frame.intersects(rect) }
         applyEffectsOnAttributes(attributes: visibleCellAttributes + visibleHeaderAttributes)
         return visibleCellAttributes + visibleHeaderAttributes
-    }
-    
-    override public func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = self.layoutAttributesForItem(at: itemIndexPath)
-        
-        attributes?.transform = CGAffineTransform(
-            translationX: 0,
-            y: 500.0
-        )
-        
-        return attributes
     }
     
     private func applyEffectsOnAttributes(attributes: [UICollectionViewLayoutAttributes]) {

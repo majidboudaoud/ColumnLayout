@@ -32,7 +32,7 @@ public extension ColumnLayoutDelegate {
     }
     
     func minimumInteritemSpacingForSection(section: Int) -> CGFloat {
-        return 8.0
+        return 10.0
     }
     
     func minimumLineSpacingForSection(section: Int) -> CGFloat {
