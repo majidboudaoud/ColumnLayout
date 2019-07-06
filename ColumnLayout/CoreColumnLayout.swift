@@ -10,12 +10,6 @@ import UIKit
 
 struct CoreColumnLayout {
     
-    ///   Calculates a section cell width from the number of columns and available width.
-    ///
-    ///   - Parameters:
-    ///      - descriptor: The descriptor object describing the current section layout behavior.
-    ///
-    ///   - Returns: An array of section cells height.
     static func calculateHeaderAttributes(availableWidth: CGFloat,
                                           height: CGFloat,
                                           currentOffset: CGFloat,
