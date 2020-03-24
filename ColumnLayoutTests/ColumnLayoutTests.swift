@@ -10,25 +10,68 @@ import XCTest
 @testable import ColumnLayout
 
 class ColumnLayoutTests: XCTestCase {
-
+    
+    private var collectionView: UICollectionView?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        collectionView = nil
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testWithTwoColumnsNoInset() {
+        let columnLayout = ColumnLayout.createMock(numberOfColumns: 2,
+                                                   heightForCell: 50)
+        self.collectionView = UICollectionView.createMock(width: 300,
+                                                          height: 800,
+                                                          layout: columnLayout)
+        columnLayout.prepare()
+        let attributes = columnLayout.layoutAttributesForItem(at: .init(row: 0, section: 0))
+        XCTAssertEqual(attributes?.bounds, CGRect(x: 0, y: 0, width: 150, height: 50))
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testWithTwoColumnsWithInsets() {
+        let columnLayout = ColumnLayout.createMock(numberOfColumns: 2,
+                                                   heightForCell: 50,
+                                                   insetForSection: .init(top: 0, left: 40, bottom: 0, right: 40))
+        self.collectionView = UICollectionView.createMock(width: 300, height: 800, layout: columnLayout)
+        columnLayout.prepare()
+        let attributes = columnLayout.layoutAttributesForItem(at: .init(row: 0, section: 0))
+        XCTAssertEqual(attributes?.frame, CGRect(x: 40, y: 0, width: 110, height: 50))
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testWithTwoColumnsWithInsetsAndInteritemSpacing() {
+        let columnLayout = ColumnLayout.createMock(numberOfColumns: 2,
+                                                   heightForCell: 50,
+                                                   minimumInteritemSpacing: 8,
+                                                   insetForSection: .init(top: 0, left: 40, bottom: 0, right: 40))
+        self.collectionView = UICollectionView.createMock(width: 300, height: 800, layout: columnLayout)
+        columnLayout.prepare()
+        let attributes = columnLayout.layoutAttributesForItem(at: .init(row: 0, section: 0))
+        XCTAssertEqual(attributes?.frame, CGRect(x: 40, y: 0, width: 106, height: 50))
     }
-
+    
+    func testWithTwoColumnsWithInsetsAndInteritemSpacingAndLineSpacing() {
+        let columnLayout = ColumnLayout.createMock(numberOfColumns: 2,
+                                                   heightForCell: 50,
+                                                   minimumInteritemSpacing: 8,
+                                                   minimumLineSpacingForSection: 8,
+                                                   insetForSection: .init(top: 0, left: 40, bottom: 0, right: 40))
+        self.collectionView = UICollectionView.createMock(width: 300, height: 800, layout: columnLayout)
+        columnLayout.prepare()
+        let attributes = columnLayout.layoutAttributesForItem(at: .init(row: 2, section: 0))
+        XCTAssertEqual(attributes?.frame, CGRect(x: 40, y: 66, width: 106, height: 50))
+    }
+    
+    func testWithTwoColumnsAndHeaderWithInsetsAndInteritemSpacingAndLineSpacing() {
+        let columnLayout = ColumnLayout.createMock(numberOfColumns: 2,
+                                                   heightForCell: 50,
+                                                   minimumInteritemSpacing: 8,
+                                                   minimumLineSpacingForSection: 8,
+                                                   referenceHeightForHeader: 120,
+                                                   insetForSection: .init(top: 0, left: 40, bottom: 0, right: 40))
+        self.collectionView = UICollectionView.createMock(width: 300, height: 800, layout: columnLayout)
+        columnLayout.prepare()
+        let attributes = columnLayout.layoutAttributesForItem(at: .init(row: 0, section: 0))
+        XCTAssertEqual(attributes?.frame, CGRect(x: 40, y: 128, width: 106, height: 50))
+    }
 }
