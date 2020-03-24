@@ -6,6 +6,9 @@
 ColumnLayout is a very powerful layout manager that aims at providing a simple API to create a column based layout on any collectionView.
 ColumnLayout is also inspired by the commonly called « PinterestLayout »  where you can vary the height of any individual cell.
 
+![](README/giphy.gif)
+
+
 ## How to use
 ```
 public protocol ColumnLayoutDelegate: class {
