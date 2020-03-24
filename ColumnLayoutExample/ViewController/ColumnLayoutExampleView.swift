@@ -17,6 +17,7 @@ class ColumnLayoutExampleView: UIView {
     private lazy var columnLayout: ColumnLayout = {
         let columnLayout = ColumnLayout()
         columnLayout.delegate = columnLayoutDelegate
+        columnLayout.effects = [CLStretchyEffect.self]
         return columnLayout
     }()
     

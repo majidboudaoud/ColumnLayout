@@ -13,7 +13,7 @@ public class ColumnLayout: UICollectionViewLayout {
     // MARK: public properties
 
     public weak var delegate: ColumnLayoutDelegate?
-    public var effects: [CLStretchyEffect.Type] = []
+    public var effects: [CLLayoutEffectDelegate.Type] = []
     
     // MARK: private properties
     

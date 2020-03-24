@@ -10,12 +10,16 @@ import ColumnLayout
 
 class ColumnLayoutExampleLayoutDelegate: ColumnLayoutDelegate {
     
-    internal func numberOfColumnsFor(section: Int) -> Int {
+    func numberOfColumnsFor(section: Int) -> Int {
         let section = ColumnLayoutExampleSectionType.allCases[section]
         return section.numberOfColumns
     }
     
-    internal func heightForCellAt(indexPath: IndexPath) -> CGFloat { 200 }
+    func referenceHeightForHeaderInSection(section: Int) -> CGFloat {
+        return 90
+    }
+    
+    func heightForCellAt(indexPath: IndexPath) -> CGFloat { 200 }
     
     func minimumInteritemSpacingForSection(section: Int) -> CGFloat { 8 }
     
