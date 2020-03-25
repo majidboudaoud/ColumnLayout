@@ -91,10 +91,9 @@ public class ColumnLayout: UICollectionViewLayout {
     }
     
     override public func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        if self.effects.count > 0 {
-            return true
-        }
-        return newBounds.width != collectionView?.bounds.width
+        guard let collectionView = self.collectionView else { return false }
+        let shouldInvalidate = effects.contains { $0.shouldInvalidateLayout(collectionView: collectionView) }
+        return shouldInvalidate || newBounds.width != collectionView.bounds.width
     }
     
     override public func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {

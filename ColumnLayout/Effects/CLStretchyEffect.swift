@@ -10,16 +10,25 @@ import Foundation
 
 public class CLStretchyEffect: CLLayoutEffectDelegate {
     
+    public static func shouldInvalidateLayout(collectionView: UICollectionView) -> Bool {
+        return collectionView.contentOffset.y <= collectionView.bounds.height
+    }
+    
+    private static func isFirstElementKindHeader(attributes: UICollectionViewLayoutAttributes) -> Bool {
+        return attributes.representedElementKind == UICollectionView.elementKindSectionHeader
+            && attributes.indexPath.section == 0
+    }
+    
     public static func computeEffectWithAttributes(attributes: [UICollectionViewLayoutAttributes],
                                                    collectionView: UICollectionView) {
-        attributes.forEach({ (attributes) in
-            if attributes.representedElementKind == UICollectionView.elementKindSectionHeader, attributes.indexPath.section == 0 {
-                let contentOffsetY = collectionView.contentOffset.y
-                let height = attributes.frame.height + attributes.frame.minY - contentOffsetY
-                attributes.frame = CGRect(x: attributes.frame.minX,
-                                          y: contentOffsetY,
-                                          width: attributes.frame.width, height: height)
-            }
-        })
+        guard
+            collectionView.contentOffset.y <= 0,
+            let firstHeaderAttributes = attributes.first(where: { isFirstElementKindHeader(attributes: $0) }) else { return }
+        let contentOffsetY = collectionView.contentOffset.y
+        let height = firstHeaderAttributes.frame.height + firstHeaderAttributes.frame.minY - contentOffsetY
+        firstHeaderAttributes.frame = CGRect(x: firstHeaderAttributes.frame.minX,
+                                             y: contentOffsetY,
+                                             width: firstHeaderAttributes.frame.width,
+                                             height: height)
     }
 }

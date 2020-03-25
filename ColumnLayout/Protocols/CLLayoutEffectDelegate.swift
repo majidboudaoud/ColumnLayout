@@ -9,5 +9,12 @@
 import Foundation
 
 public protocol CLLayoutEffectDelegate: class {
+    static func shouldInvalidateLayout(collectionView: UICollectionView) -> Bool
     static func computeEffectWithAttributes(attributes: [UICollectionViewLayoutAttributes], collectionView: UICollectionView)
+}
+
+public extension CLLayoutEffectDelegate {
+    static func shouldInvalidateLayout(collectionView: UICollectionView) -> Bool {
+        return false
+    }
 }
