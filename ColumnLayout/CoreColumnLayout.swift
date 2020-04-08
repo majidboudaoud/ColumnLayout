@@ -10,13 +10,11 @@ import UIKit
 
 struct CoreColumnLayout {
     
-    static func calculateHeaderAttributes(availableWidth: CGFloat,
-                                          height: CGFloat,
-                                          currentOffset: CGFloat,
-                                          insets: UIEdgeInsets) -> CGRect {
-        let xPosition = insets.left
-        let yPosition = currentOffset + insets.top
-        let width = availableWidth - insets.left - insets.right
+    static func calculateHeaderAttributes(descriptor: CLLayoutDescriptor, currentOffset: CGFloat) -> CGRect {
+        let xPosition = descriptor.insets.left
+        let yPosition = currentOffset + descriptor.insets.top
+        let width = descriptor.availableWidth - descriptor.insets.left - descriptor.insets.right
+        let height = descriptor.headerHeight
         return CGRect(x: xPosition, y: yPosition, width: width, height: height)
     }
     

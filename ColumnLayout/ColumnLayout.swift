@@ -8,12 +8,13 @@
 
 import UIKit
 
-public class ColumnLayout: UICollectionViewLayout {
+public final class ColumnLayout: UICollectionViewLayout {
     
     // MARK: public properties
 
     public weak var delegate: ColumnLayoutDelegate?
     public var effects: [CLLayoutEffectDelegate.Type] = []
+    public var scrollDirection: UICollectionView.ScrollDirection = .vertical
     
     // MARK: private properties
     
@@ -66,16 +67,9 @@ public class ColumnLayout: UICollectionViewLayout {
     }
     
     private func computeHeaderAttributesFor(descriptor: CLLayoutDescriptor) {
-        guard let collectionView = self.collectionView else { return }
         let indexPath = IndexPath(item: 0, section: descriptor.section)
-        let width = collectionView.bounds.width
         let offset = self.contentHeight
-        let height = self.delegate?.referenceHeightForHeaderInSection(section: descriptor.section) ?? 0
-        let frame = CoreColumnLayout.calculateHeaderAttributes(availableWidth: width,
-                                                               height: height,
-                                                               currentOffset: offset,
-                                                               insets: descriptor.insets)
-        
+        let frame = CoreColumnLayout.calculateHeaderAttributes(descriptor: descriptor, currentOffset: offset)
         let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                                           with: indexPath)
         attributes.frame = frame
