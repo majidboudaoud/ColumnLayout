@@ -8,23 +8,28 @@
 
 import UIKit
 
+public enum CLScrollDirection {
+    case vertical
+    case horizontal
+}
+
 public final class ColumnLayout: UICollectionViewLayout {
     
     // MARK: public properties
 
     public weak var delegate: ColumnLayoutDelegate?
     public var effects: [CLLayoutEffectDelegate.Type] = []
-    public var scrollDirection: UICollectionView.ScrollDirection = .vertical
+    public var scrollDirection: CLScrollDirection = .vertical
     
     // MARK: private properties
     
     private var contentHeight: CGFloat = 0
+    private var contentWidth: CGFloat = 0
     private var headerAttributes: [UICollectionViewLayoutAttributes] = []
     private var cellAttributes: [UICollectionViewLayoutAttributes] = []
     
     override public var collectionViewContentSize: CGSize {
-        guard let collectionView = self.collectionView else { return .zero }
-        return CGSize(width: collectionView.bounds.width, height: contentHeight)
+        return CGSize(width: contentWidth, height: contentHeight)
     }
     
     final override public func prepare() {
@@ -37,7 +42,7 @@ public final class ColumnLayout: UICollectionViewLayout {
     private func computeCollectionViewLayoutAttributes(collectionView: UICollectionView) {
         guard let delegate = self.delegate else { return }
         for section in 0..<collectionView.numberOfSections {
-            let descriptor = CLLayoutDescriptor(delegate: delegate, section: section, collectionView: collectionView)
+            let descriptor = CLLayoutDescriptor(delegate: delegate, section: section, collectionView: collectionView, scrollDirection: self.scrollDirection)
             self.computeHeaderAttributesFor(descriptor: descriptor)
             self.computeCellAttributesFor(descriptor: descriptor)
             self.contentHeight += descriptor.insets.bottom
@@ -48,16 +53,16 @@ public final class ColumnLayout: UICollectionViewLayout {
         let currentOffset: CGFloat = self.contentHeight
         let cellWidth = CoreColumnLayout.calculateCellWidth(descriptor: descriptor)
         let cellHorizontalPositions = CoreColumnLayout.calculateHorizontalValues(descriptor: descriptor,
-                                                                                 cellWidth: cellWidth)
+                                                                                 currentOffset: currentOffset, cellWidth: cellWidth[0], widthValues: [])
         let cellHeights = CoreColumnLayout.calculateHeightValues(descriptor: descriptor)
         let cellVerticalPositions = CoreColumnLayout.calculateVerticalValues(descriptor: descriptor,
                                                                              currentOffset: currentOffset,
-                                                                             heightValues: cellHeights)
+                                                                             heightValues: cellHeights, cellHeight: 0)
         for index in 0..<descriptor.numberOfItems {
             let indexPath = IndexPath(item: index, section: descriptor.section)
             let frame: CGRect = CGRect(x: cellHorizontalPositions[index % descriptor.numberOfColumns],
                                        y: cellVerticalPositions[index],
-                                       width: cellWidth,
+                                       width: cellWidth[0],
                                        height: cellHeights[index])
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = frame
@@ -67,14 +72,26 @@ public final class ColumnLayout: UICollectionViewLayout {
     }
     
     private func computeHeaderAttributesFor(descriptor: CLLayoutDescriptor) {
-        let indexPath = IndexPath(item: 0, section: descriptor.section)
-        let offset = self.contentHeight
-        let frame = CoreColumnLayout.calculateHeaderAttributes(descriptor: descriptor, currentOffset: offset)
-        let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                                          with: indexPath)
-        attributes.frame = frame
-        self.contentHeight = attributes.frame.maxY
-        self.headerAttributes.append(attributes)
+        switch descriptor.scrollDirection {
+        case .vertical:
+            let indexPath = IndexPath(item: 0, section: descriptor.section)
+            let offset = self.contentHeight
+            let frame = CoreColumnLayout.calculateHeaderAttributes(descriptor: descriptor, currentOffset: offset)
+            let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                                              with: indexPath)
+            attributes.frame = frame
+            self.contentHeight = attributes.frame.maxY
+            self.headerAttributes.append(attributes)
+        case .horizontal:
+            let indexPath = IndexPath(item: 0, section: descriptor.section)
+            let offset = self.contentWidth
+            let frame = CoreColumnLayout.calculateHeaderAttributes(descriptor: descriptor, currentOffset: offset)
+            let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                                              with: indexPath)
+            attributes.frame = frame
+            self.contentWidth = attributes.frame.maxX
+            self.headerAttributes.append(attributes)
+        }
     }
     
     override public func invalidateLayout() {
