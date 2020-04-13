@@ -25,10 +25,11 @@ struct CoreColumnLayout {
     ///
     ///   - Returns: An array of section cells height.
     static func calculateHeightValues(descriptor: CLLayoutDescriptor) -> [CGFloat] {
+        guard let collectionView = descriptor.collectionView else { return .init() }
         var heightValues: [CGFloat] = []
         for index in 0..<descriptor.numberOfItems {
             let indexPath = IndexPath(item: index, section: descriptor.section)
-            if let height = descriptor.delegate?.heightForCellAt(indexPath: indexPath) {
+            if let height = descriptor.delegate?.heightForCellAt(collectionView: collectionView, indexPath: indexPath) {
                 heightValues.append(height)
             }
         }

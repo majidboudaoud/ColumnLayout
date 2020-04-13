@@ -9,37 +9,37 @@
 import UIKit
 
 public protocol ColumnLayoutDelegate: class {
-    func numberOfColumnsFor(section: Int) -> Int
-    func heightForCellAt(indexPath: IndexPath) -> CGFloat
-    func referenceHeightForHeaderInSection(section: Int) -> CGFloat
-    func insetForSectionAtIndex(section: Int) -> UIEdgeInsets
-    func minimumInteritemSpacingForSection(section: Int) -> CGFloat
-    func minimumLineSpacingForSection(section: Int) -> CGFloat
+    func numberOfColumnsFor(collectionView: UICollectionView, section: Int) -> Int
+    func heightForCellAt(collectionView: UICollectionView, indexPath: IndexPath) -> CGFloat
+    func referenceHeightForHeaderInSection(collectionView: UICollectionView, section: Int) -> CGFloat
+    func insetForSectionAtIndex(collectionView: UICollectionView, section: Int) -> UIEdgeInsets
+    func minimumInteritemSpacingForSection(collectionView: UICollectionView, section: Int) -> CGFloat
+    func minimumLineSpacingForSection(collectionView: UICollectionView, section: Int) -> CGFloat
 }
 
 public extension ColumnLayoutDelegate {
     
-    func insetForSectionAtIndex(section: Int) -> UIEdgeInsets {
+    func insetForSectionAtIndex(collectionView: UICollectionView, section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
-    func heightForCellAt(indexPath: IndexPath) -> CGFloat {
+    func heightForCellAt(collectionView: UICollectionView, indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    func numberOfColumnsFor(section: Int) -> Int {
+    func numberOfColumnsFor(collectionView: UICollectionView, section: Int) -> Int {
         return 1
     }
     
-    func minimumInteritemSpacingForSection(section: Int) -> CGFloat {
+    func minimumInteritemSpacingForSection(collectionView: UICollectionView, section: Int) -> CGFloat {
         return 10.0
     }
     
-    func minimumLineSpacingForSection(section: Int) -> CGFloat {
+    func minimumLineSpacingForSection(collectionView: UICollectionView, section: Int) -> CGFloat {
         return 10.0
     }
     
-    func referenceHeightForHeaderInSection(section: Int) -> CGFloat {
+    func referenceHeightForHeaderInSection(collectionView: UICollectionView, section: Int) -> CGFloat {
         return 30.0
     }
 }
