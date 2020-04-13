@@ -11,6 +11,7 @@ import Foundation
 public class CLLayoutDescriptor {
     
     weak var delegate: ColumnLayoutDelegate?
+    weak var collectionView: UICollectionView?
     let section: Int
     let numberOfItems: Int
     let numberOfColumns: Int
@@ -22,13 +23,14 @@ public class CLLayoutDescriptor {
     
     init(delegate: ColumnLayoutDelegate, section: Int, collectionView: UICollectionView) {
         self.delegate = delegate
+        self.collectionView = collectionView
         self.section = section
         self.numberOfItems = collectionView.numberOfItems(inSection: section)
         self.availableWidth = collectionView.bounds.width
-        self.numberOfColumns = delegate.numberOfColumnsFor(section: section)
-        self.insets = delegate.insetForSectionAtIndex(section: section)
-        self.interItemSpacing = delegate.minimumInteritemSpacingForSection(section: section)
-        self.lineSpacing = delegate.minimumLineSpacingForSection(section: section)
-        self.headerHeight = delegate.referenceHeightForHeaderInSection(section: section)
+        self.numberOfColumns = delegate.numberOfColumnsFor(collectionView: collectionView, section: section)
+        self.insets = delegate.insetForSectionAtIndex(collectionView: collectionView, section: section)
+        self.interItemSpacing = delegate.minimumInteritemSpacingForSection(collectionView: collectionView, section: section)
+        self.lineSpacing = delegate.minimumLineSpacingForSection(collectionView: collectionView, section: section)
+        self.headerHeight = delegate.referenceHeightForHeaderInSection(collectionView: collectionView, section: section)
     }
 }

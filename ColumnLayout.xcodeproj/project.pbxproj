@@ -74,6 +74,7 @@
 		3C465B68242AC23B001B5F19 /* ColumnLayoutExampleCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutExampleCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		3C465B6A242AC24F001B5F19 /* ColumnLayoutExampleLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutExampleLayoutDelegate.swift; sourceTree = "<group>"; };
 		3C465B6C242AC268001B5F19 /* ColumnLayoutExampleSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutExampleSectionType.swift; sourceTree = "<group>"; };
+		3C54ECCA2441265300A64D0E /* ColumnLayoutExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColumnLayoutExample.entitlements; sourceTree = "<group>"; };
 		3C58084322845C5B00BFDAB5 /* CLLayoutDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLayoutDescriptor.swift; sourceTree = "<group>"; };
 		3C58084622845C9400BFDAB5 /* CLLayoutEffectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLayoutEffectDelegate.swift; sourceTree = "<group>"; };
 		3C58084922845CC000BFDAB5 /* CLStretchyEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLStretchyEffect.swift; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		3C465B4B242ABF6D001B5F19 /* ColumnLayoutExample */ = {
 			isa = PBXGroup;
 			children = (
+				3C54ECCA2441265300A64D0E /* ColumnLayoutExample.entitlements */,
 				3C465B4C242ABF6D001B5F19 /* AppDelegate.swift */,
 				3C465B6E242AC278001B5F19 /* ViewController */,
 				3C465B55242ABF6E001B5F19 /* Assets.xcassets */,
@@ -430,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColumnLayoutExample/ColumnLayoutExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VUA56FA2C;
 				INFOPLIST_FILE = ColumnLayoutExample/Info.plist;
@@ -440,6 +443,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majidboudaoud.ColumnLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColumnLayoutExample/ColumnLayoutExample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VUA56FA2C;
 				INFOPLIST_FILE = ColumnLayoutExample/Info.plist;
@@ -459,6 +464,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.majidboudaoud.ColumnLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

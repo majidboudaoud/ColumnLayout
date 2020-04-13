@@ -10,20 +10,23 @@ import ColumnLayout
 
 class ColumnLayoutExampleLayoutDelegate: ColumnLayoutDelegate {
     
-    func numberOfColumnsFor(section: Int) -> Int {
+    func numberOfColumnsFor(collectionView: UICollectionView, section: Int) -> Int {
         let section = ColumnLayoutExampleSectionType.allCases[section]
         return section.numberOfColumns
     }
     
-    func referenceHeightForHeaderInSection(section: Int) -> CGFloat {
-        return 90
+    func referenceHeightForHeaderInSection(collectionView: UICollectionView, section: Int) -> CGFloat {
+        let height = collectionView.bounds.height / 3
+        return height
     }
     
-    func heightForCellAt(indexPath: IndexPath) -> CGFloat { 200 }
+    func heightForCellAt(collectionView: UICollectionView, indexPath: IndexPath) -> CGFloat { 200 }
     
-    func minimumInteritemSpacingForSection(section: Int) -> CGFloat { 8 }
+    func minimumInteritemSpacingForSection(collectionView: UICollectionView, section: Int) -> CGFloat { 8 }
     
-    func minimumLineSpacingForSection(section: Int) -> CGFloat { 8 }
+    func minimumLineSpacingForSection(collectionView: UICollectionView, section: Int) -> CGFloat { 8 }
     
-    func insetForSectionAtIndex(section: Int) -> UIEdgeInsets { .init(top: 0, left: 8, bottom: 0, right: 8) }
+    func insetForSectionAtIndex(collectionView: UICollectionView, section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 8, bottom: 10, right: 8)
+    }
 }
