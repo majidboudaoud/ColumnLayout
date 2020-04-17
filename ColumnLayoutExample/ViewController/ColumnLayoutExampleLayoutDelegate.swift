@@ -6,6 +6,7 @@
 //  Copyright © 2020 Majid Boudaoud. All rights reserved.
 //
 
+import UIKit
 import ColumnLayout
 
 class ColumnLayoutExampleLayoutDelegate: ColumnLayoutDelegate {

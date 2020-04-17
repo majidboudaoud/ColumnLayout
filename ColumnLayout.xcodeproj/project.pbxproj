@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C036F8F244A4E6D00D668EB /* ColumnLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 3C036F8E244A4E6D00D668EB /* ColumnLayout */; };
 		3C465B4D242ABF6D001B5F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B4C242ABF6D001B5F19 /* AppDelegate.swift */; };
 		3C465B56242ABF6E001B5F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C465B55242ABF6E001B5F19 /* Assets.xcassets */; };
 		3C465B59242ABF6E001B5F19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C465B57242ABF6E001B5F19 /* LaunchScreen.storyboard */; };
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C036F8F244A4E6D00D668EB /* ColumnLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +108,7 @@
 			);
 			name = ColumnLayoutExample;
 			packageProductDependencies = (
+				3C036F8E244A4E6D00D668EB /* ColumnLayout */,
 			);
 			productName = ColumnLayoutExample;
 			productReference = 3C465B4A242ABF6D001B5F19 /* ColumnLayoutExample.app */;
@@ -366,6 +369,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C036F8E244A4E6D00D668EB /* ColumnLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ColumnLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3CEB7B6F225012D300455305 /* Project object */;
 }
