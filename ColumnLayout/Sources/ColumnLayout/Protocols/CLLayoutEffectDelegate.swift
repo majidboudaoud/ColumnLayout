@@ -6,7 +6,7 @@
 //  Copyright © 2019 Majid Boudaoud. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol CLLayoutEffectDelegate: class {
     static func shouldInvalidateLayout(collectionView: UICollectionView) -> Bool

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Majid Boudaoud. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import ColumnLayout
 
 private var _columnLayoutDelegate: ColumnLayoutDelegate? = nil
