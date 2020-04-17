@@ -3,67 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C465B43242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B42242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift */; };
-		3C465B45242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B44242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift */; };
+		3C036F4F244A458000D668EB /* ColumnLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 3C036F4E244A458000D668EB /* ColumnLayout */; };
 		3C465B4D242ABF6D001B5F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B4C242ABF6D001B5F19 /* AppDelegate.swift */; };
 		3C465B56242ABF6E001B5F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C465B55242ABF6E001B5F19 /* Assets.xcassets */; };
 		3C465B59242ABF6E001B5F19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C465B57242ABF6E001B5F19 /* LaunchScreen.storyboard */; };
 		3C465B5F242ABFBD001B5F19 /* ColumnLayoutExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B5E242ABFBD001B5F19 /* ColumnLayoutExampleViewController.swift */; };
-		3C465B61242AC04B001B5F19 /* ColumnLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB7B78225012D300455305 /* ColumnLayout.framework */; };
-		3C465B62242AC04B001B5F19 /* ColumnLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB7B78225012D300455305 /* ColumnLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C465B67242AC227001B5F19 /* ColumnLayoutExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B66242AC227001B5F19 /* ColumnLayoutExampleView.swift */; };
 		3C465B69242AC23B001B5F19 /* ColumnLayoutExampleCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B68242AC23B001B5F19 /* ColumnLayoutExampleCollectionViewDataSource.swift */; };
 		3C465B6B242AC24F001B5F19 /* ColumnLayoutExampleLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B6A242AC24F001B5F19 /* ColumnLayoutExampleLayoutDelegate.swift */; };
 		3C465B6D242AC268001B5F19 /* ColumnLayoutExampleSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B6C242AC268001B5F19 /* ColumnLayoutExampleSectionType.swift */; };
-		3C58084422845C5B00BFDAB5 /* CLLayoutDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58084322845C5B00BFDAB5 /* CLLayoutDescriptor.swift */; };
-		3C58084722845C9400BFDAB5 /* CLLayoutEffectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58084622845C9400BFDAB5 /* CLLayoutEffectDelegate.swift */; };
-		3C58084A22845CC000BFDAB5 /* CLStretchyEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58084922845CC000BFDAB5 /* CLStretchyEffect.swift */; };
-		3CEB7B82225012D300455305 /* ColumnLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB7B78225012D300455305 /* ColumnLayout.framework */; };
-		3CEB7B87225012D300455305 /* ColumnLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B86225012D300455305 /* ColumnLayoutTests.swift */; };
-		3CEB7B89225012D300455305 /* ColumnLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CEB7B7B225012D300455305 /* ColumnLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3CEB7B932250130700455305 /* ColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B922250130700455305 /* ColumnLayout.swift */; };
-		3CEB7B962250131500455305 /* CoreColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B942250131500455305 /* CoreColumnLayout.swift */; };
-		3CEB7B972250131500455305 /* ColumnLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B952250131500455305 /* ColumnLayoutDelegate.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3C465B63242AC04B001B5F19 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3CEB7B6F225012D300455305 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3CEB7B77225012D300455305;
-			remoteInfo = ColumnLayout;
-		};
-		3CEB7B83225012D300455305 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3CEB7B6F225012D300455305 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3CEB7B77225012D300455305;
-			remoteInfo = ColumnLayout;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3C465B65242AC04B001B5F19 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3C465B62242AC04B001B5F19 /* ColumnLayout.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		3C465B42242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ExtensionTest.swift"; sourceTree = "<group>"; };
-		3C465B44242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColumnLayout+ExtensionsTest.swift"; sourceTree = "<group>"; };
+		3C036F4D244A449000D668EB /* ColumnLayout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ColumnLayout; sourceTree = "<group>"; };
 		3C465B4A242ABF6D001B5F19 /* ColumnLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumnLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C465B4C242ABF6D001B5F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C465B55242ABF6E001B5F19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,18 +30,6 @@
 		3C465B68242AC23B001B5F19 /* ColumnLayoutExampleCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutExampleCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		3C465B6A242AC24F001B5F19 /* ColumnLayoutExampleLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutExampleLayoutDelegate.swift; sourceTree = "<group>"; };
 		3C465B6C242AC268001B5F19 /* ColumnLayoutExampleSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutExampleSectionType.swift; sourceTree = "<group>"; };
-		3C58084322845C5B00BFDAB5 /* CLLayoutDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLayoutDescriptor.swift; sourceTree = "<group>"; };
-		3C58084622845C9400BFDAB5 /* CLLayoutEffectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLayoutEffectDelegate.swift; sourceTree = "<group>"; };
-		3C58084922845CC000BFDAB5 /* CLStretchyEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLStretchyEffect.swift; sourceTree = "<group>"; };
-		3CEB7B78225012D300455305 /* ColumnLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColumnLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CEB7B7B225012D300455305 /* ColumnLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColumnLayout.h; sourceTree = "<group>"; };
-		3CEB7B7C225012D300455305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CEB7B81225012D300455305 /* ColumnLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColumnLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CEB7B86225012D300455305 /* ColumnLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutTests.swift; sourceTree = "<group>"; };
-		3CEB7B88225012D300455305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CEB7B922250130700455305 /* ColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnLayout.swift; sourceTree = "<group>"; };
-		3CEB7B942250131500455305 /* CoreColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreColumnLayout.swift; sourceTree = "<group>"; };
-		3CEB7B952250131500455305 /* ColumnLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnLayoutDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,37 +37,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C465B61242AC04B001B5F19 /* ColumnLayout.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CEB7B75225012D300455305 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CEB7B7E225012D300455305 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3CEB7B82225012D300455305 /* ColumnLayout.framework in Frameworks */,
+				3C036F4F244A458000D668EB /* ColumnLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C465B41242AAA67001B5F19 /* ExtensionsTest */ = {
-			isa = PBXGroup;
-			children = (
-				3C465B42242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift */,
-				3C465B44242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift */,
-			);
-			path = ExtensionsTest;
-			sourceTree = "<group>";
-		};
 		3C465B4B242ABF6D001B5F19 /* ColumnLayoutExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,36 +75,10 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		3C58084222845C4600BFDAB5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3C58084322845C5B00BFDAB5 /* CLLayoutDescriptor.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		3C58084522845C8800BFDAB5 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				3CEB7B952250131500455305 /* ColumnLayoutDelegate.swift */,
-				3C58084622845C9400BFDAB5 /* CLLayoutEffectDelegate.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		3C58084822845CB100BFDAB5 /* Effects */ = {
-			isa = PBXGroup;
-			children = (
-				3C58084922845CC000BFDAB5 /* CLStretchyEffect.swift */,
-			);
-			path = Effects;
-			sourceTree = "<group>";
-		};
 		3CEB7B6E225012D300455305 = {
 			isa = PBXGroup;
 			children = (
-				3CEB7B7A225012D300455305 /* ColumnLayout */,
-				3CEB7B85225012D300455305 /* ColumnLayoutTests */,
+				3C036F4D244A449000D668EB /* ColumnLayout */,
 				3C465B4B242ABF6D001B5F19 /* ColumnLayoutExample */,
 				3CEB7B79225012D300455305 /* Products */,
 				3C465B60242AC04B001B5F19 /* Frameworks */,
@@ -194,49 +88,12 @@
 		3CEB7B79225012D300455305 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3CEB7B78225012D300455305 /* ColumnLayout.framework */,
-				3CEB7B81225012D300455305 /* ColumnLayoutTests.xctest */,
 				3C465B4A242ABF6D001B5F19 /* ColumnLayoutExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3CEB7B7A225012D300455305 /* ColumnLayout */ = {
-			isa = PBXGroup;
-			children = (
-				3C58084822845CB100BFDAB5 /* Effects */,
-				3C58084522845C8800BFDAB5 /* Protocols */,
-				3C58084222845C4600BFDAB5 /* Models */,
-				3CEB7B942250131500455305 /* CoreColumnLayout.swift */,
-				3CEB7B922250130700455305 /* ColumnLayout.swift */,
-				3CEB7B7B225012D300455305 /* ColumnLayout.h */,
-				3CEB7B7C225012D300455305 /* Info.plist */,
-			);
-			path = ColumnLayout;
-			sourceTree = "<group>";
-		};
-		3CEB7B85225012D300455305 /* ColumnLayoutTests */ = {
-			isa = PBXGroup;
-			children = (
-				3C465B41242AAA67001B5F19 /* ExtensionsTest */,
-				3CEB7B86225012D300455305 /* ColumnLayoutTests.swift */,
-				3CEB7B88225012D300455305 /* Info.plist */,
-			);
-			path = ColumnLayoutTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		3CEB7B73225012D300455305 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3CEB7B89225012D300455305 /* ColumnLayout.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		3C465B49242ABF6D001B5F19 /* ColumnLayoutExample */ = {
@@ -246,53 +103,18 @@
 				3C465B46242ABF6D001B5F19 /* Sources */,
 				3C465B47242ABF6D001B5F19 /* Frameworks */,
 				3C465B48242ABF6D001B5F19 /* Resources */,
-				3C465B65242AC04B001B5F19 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3C465B64242AC04B001B5F19 /* PBXTargetDependency */,
 			);
 			name = ColumnLayoutExample;
+			packageProductDependencies = (
+				3C036F4E244A458000D668EB /* ColumnLayout */,
+			);
 			productName = ColumnLayoutExample;
 			productReference = 3C465B4A242ABF6D001B5F19 /* ColumnLayoutExample.app */;
 			productType = "com.apple.product-type.application";
-		};
-		3CEB7B77225012D300455305 /* ColumnLayout */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3CEB7B8C225012D300455305 /* Build configuration list for PBXNativeTarget "ColumnLayout" */;
-			buildPhases = (
-				3CEB7B73225012D300455305 /* Headers */,
-				3CEB7B74225012D300455305 /* Sources */,
-				3CEB7B75225012D300455305 /* Frameworks */,
-				3CEB7B76225012D300455305 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ColumnLayout;
-			productName = ColumnLayout;
-			productReference = 3CEB7B78225012D300455305 /* ColumnLayout.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3CEB7B80225012D300455305 /* ColumnLayoutTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3CEB7B8F225012D300455305 /* Build configuration list for PBXNativeTarget "ColumnLayoutTests" */;
-			buildPhases = (
-				3CEB7B7D225012D300455305 /* Sources */,
-				3CEB7B7E225012D300455305 /* Frameworks */,
-				3CEB7B7F225012D300455305 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3CEB7B84225012D300455305 /* PBXTargetDependency */,
-			);
-			name = ColumnLayoutTests;
-			productName = ColumnLayoutTests;
-			productReference = 3CEB7B81225012D300455305 /* ColumnLayoutTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -306,13 +128,6 @@
 				TargetAttributes = {
 					3C465B49242ABF6D001B5F19 = {
 						CreatedOnToolsVersion = 11.4;
-					};
-					3CEB7B77225012D300455305 = {
-						CreatedOnToolsVersion = 10.2;
-						LastSwiftMigration = 1020;
-					};
-					3CEB7B80225012D300455305 = {
-						CreatedOnToolsVersion = 10.2;
 					};
 				};
 			};
@@ -329,8 +144,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3CEB7B77225012D300455305 /* ColumnLayout */,
-				3CEB7B80225012D300455305 /* ColumnLayoutTests */,
 				3C465B49242ABF6D001B5F19 /* ColumnLayoutExample */,
 			);
 		};
@@ -343,20 +156,6 @@
 			files = (
 				3C465B59242ABF6E001B5F19 /* LaunchScreen.storyboard in Resources */,
 				3C465B56242ABF6E001B5F19 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CEB7B76225012D300455305 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CEB7B7F225012D300455305 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,43 +175,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3CEB7B74225012D300455305 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3CEB7B972250131500455305 /* ColumnLayoutDelegate.swift in Sources */,
-				3CEB7B962250131500455305 /* CoreColumnLayout.swift in Sources */,
-				3C58084722845C9400BFDAB5 /* CLLayoutEffectDelegate.swift in Sources */,
-				3CEB7B932250130700455305 /* ColumnLayout.swift in Sources */,
-				3C58084422845C5B00BFDAB5 /* CLLayoutDescriptor.swift in Sources */,
-				3C58084A22845CC000BFDAB5 /* CLStretchyEffect.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3CEB7B7D225012D300455305 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3C465B43242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift in Sources */,
-				3C465B45242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift in Sources */,
-				3CEB7B87225012D300455305 /* ColumnLayoutTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3C465B64242AC04B001B5F19 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3CEB7B77225012D300455305 /* ColumnLayout */;
-			targetProxy = 3C465B63242AC04B001B5F19 /* PBXContainerItemProxy */;
-		};
-		3CEB7B84225012D300455305 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3CEB7B77225012D300455305 /* ColumnLayout */;
-			targetProxy = 3CEB7B83225012D300455305 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3C465B57242ABF6E001B5F19 /* LaunchScreen.storyboard */ = {
@@ -586,101 +349,6 @@
 			};
 			name = Release;
 		};
-		3CEB7B8D225012D300455305 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ColumnLayout/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.majidboudaoud.ColumnLayout;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3CEB7B8E225012D300455305 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ColumnLayout/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.majidboudaoud.ColumnLayout;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		3CEB7B90225012D300455305 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2VUA56FA2C;
-				INFOPLIST_FILE = ColumnLayoutTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.majidboudaoud.ColumnLayoutTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3CEB7B91225012D300455305 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2VUA56FA2C;
-				INFOPLIST_FILE = ColumnLayoutTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.majidboudaoud.ColumnLayoutTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -702,25 +370,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CEB7B8C225012D300455305 /* Build configuration list for PBXNativeTarget "ColumnLayout" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3CEB7B8D225012D300455305 /* Debug */,
-				3CEB7B8E225012D300455305 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3CEB7B8F225012D300455305 /* Build configuration list for PBXNativeTarget "ColumnLayoutTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3CEB7B90225012D300455305 /* Debug */,
-				3CEB7B91225012D300455305 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C036F4E244A458000D668EB /* ColumnLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ColumnLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3CEB7B6F225012D300455305 /* Project object */;
 }

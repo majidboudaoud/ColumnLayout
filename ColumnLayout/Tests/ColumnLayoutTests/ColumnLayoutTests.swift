@@ -1,16 +1,7 @@
-//
-//  ColumnLayoutTests.swift
-//  ColumnLayoutTests
-//
-//  Created by Majid Boudaoud on 30/03/2019.
-//  Copyright © 2019 Majid Boudaoud. All rights reserved.
-//
-
 import XCTest
 @testable import ColumnLayout
 
-class ColumnLayoutTests: XCTestCase {
-    
+final class ColumnLayoutTests: XCTestCase {
     private var collectionView: UICollectionView?
     
     override func setUp() {
@@ -74,4 +65,12 @@ class ColumnLayoutTests: XCTestCase {
         let attributes = columnLayout.layoutAttributesForItem(at: .init(row: 0, section: 0))
         XCTAssertEqual(attributes?.frame, CGRect(x: 40, y: 128, width: 106, height: 50))
     }
+
+    static var allTests = [
+        ("testWithTwoColumnsNoInset", testWithTwoColumnsNoInset),
+        ("testWithTwoColumnsWithInsets", testWithTwoColumnsWithInsets),
+        ("testWithTwoColumnsWithInsetsAndInteritemSpacing", testWithTwoColumnsWithInsetsAndInteritemSpacing),
+        ("testWithTwoColumnsWithInsetsAndInteritemSpacingAndLineSpacing", testWithTwoColumnsWithInsetsAndInteritemSpacingAndLineSpacing),
+        ("testWithTwoColumnsAndHeaderWithInsetsAndInteritemSpacingAndLineSpacing", testWithTwoColumnsAndHeaderWithInsetsAndInteritemSpacingAndLineSpacing),
+    ]
 }
