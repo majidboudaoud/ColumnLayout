@@ -8,83 +8,14 @@
 
 import UIKit
 
-struct CLHorizontalLayoutCalculator {
-    
-    static func calculateHeaderAttributes(_ currentOffset: CGFloat, _ descriptor: CLLayoutDescriptor) -> CGRect {
-        let xPosition = currentOffset + descriptor.insets.left
-        let yPosition = descriptor.insets.top
-        let width = descriptor.headerWidth
-        let height = descriptor.availableHeight - descriptor.insets.top - descriptor.insets.bottom
-        return CGRect(x: xPosition, y: yPosition, width: width, height: height)
-    }
-    
-    static func calculateHeightValues(_ descriptor: CLLayoutDescriptor) -> CGFloat {
-        let insets = descriptor.insets
-        let lineSpacing = descriptor.lineSpacing
-        let numberOfColumns = CGFloat(descriptor.numberOfColumns)
-        let columnHeight = descriptor.availableHeight - insets.top - insets.bottom - ((numberOfColumns - 1) * lineSpacing)
-        let cellHeight = columnHeight / numberOfColumns
-        return cellHeight
-    }
-    
-    static func calculateCellWidth(_ descriptor: CLLayoutDescriptor) -> [CGFloat] {
-        var widthValues: [CGFloat] = []
-        for index in 0..<descriptor.numberOfItems {
-            let indexPath = IndexPath(item: index, section: descriptor.section)
-            if let height = descriptor.delegate?.heightForCellAt(indexPath: indexPath) {
-                widthValues.append(height)
-            }
-        }
-        return widthValues
-    }
-    
-    static func calculateHorizontalValues(_ currentOffset: CGFloat, _ descriptor: CLLayoutDescriptor, _ widthValues: [CGFloat]) -> [CGFloat] {
-        let currentOffset = currentOffset + descriptor.interItemSpacing
-        let xPositions = widthValues.enumerated().map { (offset, height) -> CGFloat in
-            return computeValues(fromValue: currentOffset,
-                                 lineSpacing: descriptor.interItemSpacing,
-                                 index: offset,
-                                 array: widthValues,
-                                 numberOfColumns: descriptor.numberOfColumns)
-        }
-        return xPositions
-    }
-    
-    static func calculateVerticalValues(_ descriptor: CLLayoutDescriptor, _ cellHeight: CGFloat) -> [CGFloat] {
-        var yPositions: [CGFloat] = []
-        for i in 0..<descriptor.numberOfColumns {
-            let index = CGFloat(i)
-            let verticalInsets: CGFloat = descriptor.insets.top + (index * descriptor.lineSpacing)
-            let cellHeight: CGFloat = index * cellHeight
-            let x = verticalInsets + cellHeight
-            yPositions.append(x)
-        }
-        return yPositions
-    }
-    
-    ///   Calculate the y value for a given index.
-    ///
-    ///   - Parameters:
-    ///      - index: The index from wich the computation is made.
-    ///      - array: An array of height values.
-    ///      - numberOfColumns: The number of columns for a given section.
-    ///
-    ///   - Returns: The width of the specified item.
-    private static func computeValues(fromValue: CGFloat,
-                                      lineSpacing: CGFloat,
-                                      index: Int,
-                                      array: [CGFloat],
-                                      numberOfColumns: Int) -> CGFloat {
-        var value: CGFloat = fromValue
-        for index in stride(from: index % numberOfColumns, to: index, by: numberOfColumns) {
-            value += array[index] + lineSpacing
-        }
-        return value
-    }
-}
-
 struct CLVerticalLayoutCalculator {
     
+    ///   Calculates a section header attributes from available width.
+    ///
+    ///   - Parameters:
+    ///      - descriptor: The descriptor object describing the current section layout behavior.
+    ///
+    ///   - Returns: A CGRect object describing header size and position.
     static func calculateHeaderAttributes(descriptor: CLLayoutDescriptor, currentOffset: CGFloat) -> CGRect {
         let xPosition = descriptor.insets.left
         let yPosition = currentOffset + descriptor.insets.top

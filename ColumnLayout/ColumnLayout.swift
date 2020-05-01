@@ -19,7 +19,7 @@ public final class ColumnLayout: UICollectionViewLayout {
 
     public weak var delegate: ColumnLayoutDelegate?
     public var effects: [CLLayoutEffectDelegate.Type] = []
-    public var scrollDirection: CLScrollDirection = .vertical
+    public var scrollDirection: CLScrollDirection = .horizontal
     
     // MARK: private properties
     
@@ -29,7 +29,8 @@ public final class ColumnLayout: UICollectionViewLayout {
     private var cellAttributes: [UICollectionViewLayoutAttributes] = []
     
     override public var collectionViewContentSize: CGSize {
-        return CGSize(width: contentWidth, height: contentHeight)
+        guard let collectionView = self.collectionView else { return .zero }
+        return CGSize(width: contentWidth, height: collectionView.bounds.width)
     }
     
     final override public func prepare() {
@@ -50,24 +51,44 @@ public final class ColumnLayout: UICollectionViewLayout {
     }
     
     private func computeCellAttributesFor(descriptor: CLLayoutDescriptor) {
-        let currentOffset: CGFloat = self.contentHeight
-        let cellWidth = CoreColumnLayout.calculateCellWidth(descriptor: descriptor)
-        let cellHorizontalPositions = CoreColumnLayout.calculateHorizontalValues(descriptor: descriptor,
-                                                                                 currentOffset: currentOffset, cellWidth: cellWidth[0], widthValues: [])
-        let cellHeights = CoreColumnLayout.calculateHeightValues(descriptor: descriptor)
-        let cellVerticalPositions = CoreColumnLayout.calculateVerticalValues(descriptor: descriptor,
-                                                                             currentOffset: currentOffset,
-                                                                             heightValues: cellHeights, cellHeight: 0)
-        for index in 0..<descriptor.numberOfItems {
-            let indexPath = IndexPath(item: index, section: descriptor.section)
-            let frame: CGRect = CGRect(x: cellHorizontalPositions[index % descriptor.numberOfColumns],
-                                       y: cellVerticalPositions[index],
-                                       width: cellWidth[0],
-                                       height: cellHeights[index])
-            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            attributes.frame = frame
-            self.contentHeight = max(attributes.frame.maxY, contentHeight)
-            self.cellAttributes.append(attributes)
+        switch descriptor.scrollDirection {
+        case .vertical:
+            let currentOffset: CGFloat = self.contentHeight
+            let cellWidth = CLVerticalLayoutCalculator.calculateCellWidth(descriptor: descriptor)
+            let cellHorizontalPositions = CLVerticalLayoutCalculator.calculateHorizontalValues(descriptor: descriptor,
+                                                                                     cellWidth: cellWidth)
+            let cellHeights = CLVerticalLayoutCalculator.calculateHeightValues(descriptor: descriptor)
+            let cellVerticalPositions = CLVerticalLayoutCalculator.calculateVerticalValues(descriptor: descriptor,
+                                                                                 currentOffset: currentOffset,
+                                                                                 heightValues: cellHeights)
+            for index in 0..<descriptor.numberOfItems {
+                let indexPath = IndexPath(item: index, section: descriptor.section)
+                let frame: CGRect = CGRect(x: cellHorizontalPositions[index % descriptor.numberOfColumns],
+                                           y: cellVerticalPositions[index],
+                                           width: cellWidth,
+                                           height: cellHeights[index])
+                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                attributes.frame = frame
+                self.contentHeight = max(attributes.frame.maxY, contentHeight)
+                self.cellAttributes.append(attributes)
+            }
+        case .horizontal:
+            let currentOffset: CGFloat = self.contentWidth
+            let cellWidth = CLHorizontalLayoutCalculator.calculateCellWidth(descriptor)
+            let cellHeights = CLHorizontalLayoutCalculator.calculateHeightValues(descriptor)
+            let cellVerticalPositions = CLHorizontalLayoutCalculator.calculateVerticalValues(descriptor, cellHeights)
+            let cellHorizontalPositions = CLHorizontalLayoutCalculator.calculateHorizontalValues(currentOffset, descriptor, cellWidth)
+            for index in 0..<descriptor.numberOfItems {
+                let indexPath = IndexPath(item: index, section: descriptor.section)
+                let frame: CGRect = CGRect(x: cellHorizontalPositions[index],
+                                           y: cellVerticalPositions[index % descriptor.numberOfColumns],
+                                           width: cellWidth[index],
+                                           height: cellHeights)
+                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                attributes.frame = frame
+                self.contentWidth = max(attributes.frame.maxX, contentHeight)
+                self.cellAttributes.append(attributes)
+            }
         }
     }
     
@@ -76,7 +97,7 @@ public final class ColumnLayout: UICollectionViewLayout {
         case .vertical:
             let indexPath = IndexPath(item: 0, section: descriptor.section)
             let offset = self.contentHeight
-            let frame = CoreColumnLayout.calculateHeaderAttributes(descriptor: descriptor, currentOffset: offset)
+            let frame = CLVerticalLayoutCalculator.calculateHeaderAttributes(descriptor: descriptor, currentOffset: offset)
             let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                                               with: indexPath)
             attributes.frame = frame
@@ -85,7 +106,7 @@ public final class ColumnLayout: UICollectionViewLayout {
         case .horizontal:
             let indexPath = IndexPath(item: 0, section: descriptor.section)
             let offset = self.contentWidth
-            let frame = CoreColumnLayout.calculateHeaderAttributes(descriptor: descriptor, currentOffset: offset)
+            let frame = CLHorizontalLayoutCalculator.calculateHeaderAttributes(offset, descriptor)
             let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                                               with: indexPath)
             attributes.frame = frame

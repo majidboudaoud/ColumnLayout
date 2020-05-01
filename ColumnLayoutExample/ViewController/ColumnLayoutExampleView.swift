@@ -17,7 +17,6 @@ class ColumnLayoutExampleView: UIView {
     private lazy var columnLayout: ColumnLayout = {
         let columnLayout = ColumnLayout()
         columnLayout.delegate = columnLayoutDelegate
-        columnLayout.effects = [CLStretchyEffect.self]
         return columnLayout
     }()
     
@@ -27,7 +26,7 @@ class ColumnLayoutExampleView: UIView {
         dataSource.registerCellsFor(collectionView: collectionView)
         collectionView.dataSource = dataSource
         collectionView.backgroundColor = .white
-        collectionView.alwaysBounceVertical = true
+        collectionView.isPagingEnabled = true
         return collectionView
     }()
     

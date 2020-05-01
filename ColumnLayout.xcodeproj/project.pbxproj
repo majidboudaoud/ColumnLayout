@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C159F45245EEC2A00BC85DD /* CLHorizontalLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C159F44245EEC2A00BC85DD /* CLHorizontalLayoutCalculator.swift */; };
 		3C465B43242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B42242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift */; };
 		3C465B45242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B44242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift */; };
 		3C465B4D242ABF6D001B5F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C465B4C242ABF6D001B5F19 /* AppDelegate.swift */; };
@@ -26,7 +27,7 @@
 		3CEB7B87225012D300455305 /* ColumnLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B86225012D300455305 /* ColumnLayoutTests.swift */; };
 		3CEB7B89225012D300455305 /* ColumnLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CEB7B7B225012D300455305 /* ColumnLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3CEB7B932250130700455305 /* ColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B922250130700455305 /* ColumnLayout.swift */; };
-		3CEB7B962250131500455305 /* CoreColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B942250131500455305 /* CoreColumnLayout.swift */; };
+		3CEB7B962250131500455305 /* CLVerticalLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B942250131500455305 /* CLVerticalLayoutCalculator.swift */; };
 		3CEB7B972250131500455305 /* ColumnLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB7B952250131500455305 /* ColumnLayoutDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C159F44245EEC2A00BC85DD /* CLHorizontalLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLHorizontalLayoutCalculator.swift; sourceTree = "<group>"; };
 		3C465B42242AAAB3001B5F19 /* UICollectionView+ExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ExtensionTest.swift"; sourceTree = "<group>"; };
 		3C465B44242AABBF001B5F19 /* ColumnLayout+ExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColumnLayout+ExtensionsTest.swift"; sourceTree = "<group>"; };
 		3C465B4A242ABF6D001B5F19 /* ColumnLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumnLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +86,7 @@
 		3CEB7B86225012D300455305 /* ColumnLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLayoutTests.swift; sourceTree = "<group>"; };
 		3CEB7B88225012D300455305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CEB7B922250130700455305 /* ColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnLayout.swift; sourceTree = "<group>"; };
-		3CEB7B942250131500455305 /* CoreColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreColumnLayout.swift; sourceTree = "<group>"; };
+		3CEB7B942250131500455305 /* CLVerticalLayoutCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLVerticalLayoutCalculator.swift; sourceTree = "<group>"; };
 		3CEB7B952250131500455305 /* ColumnLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnLayoutDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,7 +209,8 @@
 				3C58084822845CB100BFDAB5 /* Effects */,
 				3C58084522845C8800BFDAB5 /* Protocols */,
 				3C58084222845C4600BFDAB5 /* Models */,
-				3CEB7B942250131500455305 /* CoreColumnLayout.swift */,
+				3CEB7B942250131500455305 /* CLVerticalLayoutCalculator.swift */,
+				3C159F44245EEC2A00BC85DD /* CLHorizontalLayoutCalculator.swift */,
 				3CEB7B922250130700455305 /* ColumnLayout.swift */,
 				3CEB7B7B225012D300455305 /* ColumnLayout.h */,
 				3CEB7B7C225012D300455305 /* Info.plist */,
@@ -381,9 +384,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CEB7B972250131500455305 /* ColumnLayoutDelegate.swift in Sources */,
-				3CEB7B962250131500455305 /* CoreColumnLayout.swift in Sources */,
+				3CEB7B962250131500455305 /* CLVerticalLayoutCalculator.swift in Sources */,
 				3C58084722845C9400BFDAB5 /* CLLayoutEffectDelegate.swift in Sources */,
 				3CEB7B932250130700455305 /* ColumnLayout.swift in Sources */,
+				3C159F45245EEC2A00BC85DD /* CLHorizontalLayoutCalculator.swift in Sources */,
 				3C58084422845C5B00BFDAB5 /* CLLayoutDescriptor.swift in Sources */,
 				3C58084A22845CC000BFDAB5 /* CLStretchyEffect.swift in Sources */,
 			);
@@ -431,7 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2VUA56FA2C;
 				INFOPLIST_FILE = ColumnLayoutExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,7 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2VUA56FA2C;
 				INFOPLIST_FILE = ColumnLayoutExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
