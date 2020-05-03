@@ -51,7 +51,7 @@ struct CLHorizontalLayoutCalculator {
         var widthValues: [CGFloat] = []
         for index in 0..<descriptor.numberOfItems {
             let indexPath = IndexPath(item: index, section: descriptor.section)
-            if let height = descriptor.delegate?.heightForCellAt(indexPath: indexPath) {
+            if let height = descriptor.delegate?.widthForCellAt(indexPath: indexPath) {
                 widthValues.append(height)
             }
         }
