@@ -11,7 +11,9 @@ import UIKit
 public protocol ColumnLayoutDelegate: class {
     func numberOfColumnsFor(section: Int) -> Int
     func heightForCellAt(indexPath: IndexPath) -> CGFloat
+    func widthForCellAt(indexPath: IndexPath) -> CGFloat
     func referenceHeightForHeaderInSection(section: Int) -> CGFloat
+    func referenceWidthForHeaderInSection(section: Int) -> CGFloat
     func insetForSectionAtIndex(section: Int) -> UIEdgeInsets
     func minimumInteritemSpacingForSection(section: Int) -> CGFloat
     func minimumLineSpacingForSection(section: Int) -> CGFloat
@@ -24,6 +26,10 @@ public extension ColumnLayoutDelegate {
     }
     
     func heightForCellAt(indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func widthForCellAt(indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
@@ -40,6 +46,10 @@ public extension ColumnLayoutDelegate {
     }
     
     func referenceHeightForHeaderInSection(section: Int) -> CGFloat {
+        return 30.0
+    }
+    
+    func referenceWidthForHeaderInSection(section: Int) -> CGFloat {
         return 30.0
     }
 }
