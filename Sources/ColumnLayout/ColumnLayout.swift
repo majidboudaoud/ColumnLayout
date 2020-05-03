@@ -141,8 +141,17 @@ public final class ColumnLayout: UICollectionViewLayout {
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let visibleCellAttributes = cellAttributes.filter{ $0.frame.intersects(rect) }
         let visibleHeaderAttributes = headerAttributes.filter{ $0.frame.intersects(rect) }
-        applyEffectsOnAttributes(attributes: visibleCellAttributes + visibleHeaderAttributes)
-        return visibleCellAttributes + visibleHeaderAttributes
+        let addedAttributes = self.shouldAddAttributes()
+        applyEffectsOnAttributes(attributes: visibleCellAttributes + visibleHeaderAttributes + addedAttributes)
+        return visibleCellAttributes + visibleHeaderAttributes + addedAttributes
+    }
+    
+    private func shouldAddAttributes() -> [UICollectionViewLayoutAttributes] {
+        var attributes: [UICollectionViewLayoutAttributes] = []
+        self.effects.forEach { (effect) in
+            attributes.append(contentsOf: effect.shouldAddAttributes(allAttributes: self.headerAttributes + self.cellAttributes) )
+        }
+        return attributes
     }
     
     private func applyEffectsOnAttributes(attributes: [UICollectionViewLayoutAttributes]) {

@@ -11,10 +11,13 @@ import UIKit
 public protocol CLLayoutEffectDelegate: class {
     static func shouldInvalidateLayout(collectionView: UICollectionView) -> Bool
     static func computeEffectWithAttributes(attributes: [UICollectionViewLayoutAttributes], collectionView: UICollectionView)
+    static func shouldAddAttributes(allAttributes: [UICollectionViewLayoutAttributes]) -> [UICollectionViewLayoutAttributes]
 }
 
 public extension CLLayoutEffectDelegate {
     static func shouldInvalidateLayout(collectionView: UICollectionView) -> Bool {
         return false
     }
+    
+    static func shouldAddAttributes(allAttributes: [UICollectionViewLayoutAttributes]) -> [UICollectionViewLayoutAttributes] { return [] }
 }
