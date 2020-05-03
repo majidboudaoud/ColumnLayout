@@ -19,7 +19,7 @@ public final class ColumnLayout: UICollectionViewLayout {
 
     public weak var delegate: ColumnLayoutDelegate?
     public var effects: [CLLayoutEffectDelegate.Type] = []
-    public var scrollDirection: CLScrollDirection = .horizontal
+    public var scrollDirection: CLScrollDirection = .vertical
     
     // MARK: private properties
     
