@@ -1,5 +1,5 @@
 //
-//  CoreColumnLayout.swift
+//  CLVerticalLayoutCalculator.swift
 //  ColumnLayoutExample
 //
 //  Created by Majid Boudaoud on 01/03/2019.
@@ -8,8 +8,14 @@
 
 import UIKit
 
-struct CoreColumnLayout {
+struct CLVerticalLayoutCalculator {
     
+    ///   Calculates a section header attributes from available width.
+    ///
+    ///   - Parameters:
+    ///      - descriptor: The descriptor object describing the current section layout behavior.
+    ///
+    ///   - Returns: A CGRect object describing header size and position.
     static func calculateHeaderAttributes(descriptor: CLLayoutDescriptor, currentOffset: CGFloat) -> CGRect {
         let xPosition = descriptor.insets.left
         let yPosition = currentOffset + descriptor.insets.top
@@ -17,7 +23,7 @@ struct CoreColumnLayout {
         let height = descriptor.headerHeight
         return CGRect(x: xPosition, y: yPosition, width: width, height: height)
     }
-    
+
     ///   Calculates a section cell width from the number of columns and available width.
     ///
     ///   - Parameters:
